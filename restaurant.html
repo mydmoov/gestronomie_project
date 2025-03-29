@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Essence - Restaurant Gastronomique</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #f5f5f5;
+        }
+        
+        header {
+            background-color: #121212;
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        .logo {
+            font-family: 'Times New Roman', serif;
+            font-size: 42px;
+            font-weight: 200;
+            letter-spacing: 8px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .tagline {
+            font-size: 16px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            color: #aaa;
+        }
+        
+        nav {
+            background-color: #121212;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        nav a {
+            color: #f5f5f5;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #c9c9c9;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        h2 {
+            font-family: 'Times New Roman', serif;
+            font-weight: 300;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+        
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 40px;
+        }
+        
+        .menu-item {
+            background-color: #222;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .menu-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .menu-content {
+            padding: 20px;
+        }
+        
+        .menu-content h3 {
+            font-family: 'Times New Roman', serif;
+            font-weight: 400;
+            margin-top: 0;
+            font-size: 24px;
+            color: #fff;
+        }
+        
+        .menu-content p {
+            color: #bbb;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        
+        .price {
+            font-weight: 300;
+            color: #fff;
+            font-size: 18px;
+            margin-top: 15px;
+            display: block;
+        }
+        
+        .reservation {
+            background-color: #222;
+            padding: 40px;
+            border-radius: 4px;
+            margin-top: 60px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .reservation h2 {
+            margin-top: 0;
+        }
+        
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: 300;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            background-color: #333;
+            border: none;
+            border-radius: 4px;
+            color: #f5f5f5;
+            font-family: inherit;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        button {
+            background-color: #f5f5f5;
+            color: #121212;
+            border: none;
+            padding: 14px 30px;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto 0;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #ddd;
+        }
+        
+        footer {
+            background-color: #121212;
+            color: #888;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+            border-top: 1px solid #333;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: #f5f5f5;
+            font-weight: 300;
+            font-size: 18px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .footer-section p {
+            margin: 8px 0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .social-links a {
+            color: #888;
+            margin: 0 10px;
+            font-size: 18px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #f5f5f5;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #333;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .menu-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-section {
+                margin-bottom: 40px;
+            }
+            
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+            
+            .logo {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="logo">L'ESSENCE</h1>
+        <p class="tagline">CUISINE GASTRONOMIQUE FUSION</p>
+    </header>
+    
+    <nav>
+        <a href="#menu">Menu</a>
+        <a href="#about">À Propos</a>
+        <a href="#reservation">Réservation</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+        <section id="menu">
+            <h2>NOTRE CARTE</h2>
+            
+            <div class="menu-container">
+                <article class="menu-item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/buildAssets%2FE0bODgdAb7GbS8Ge3L9Y%2Fsushi.jpg?alt=media&token=b16964a1-2d76-4537-9e07-2c7682db735a" alt="Sushi Assortiment">
+                    <div class="menu-content">
+                        <h3>Assortiment de Sushi Signature</h3>
+                        <p>Sélection raffinée de sushi au saumon, thon rouge et crevettes tigrées, accompagnés de wasabi frais et gingembre mariné.</p>
+                        <span class="price">32€</span>
+                    </div>
+                </article>
+                
+                <article class="menu-item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/buildAssets%2FE0bODgdAb7GbS8Ge3L9Y%2Fsalade.jpg?alt=media&token=7b138513-1ec0-486a-b1a6-8523711c0813" alt="Salade de Mer">
+                    <div class="menu-content">
+                        <h3>Salade de Mer Délicate</h3>
+                        <p>Crevettes sauvages et concombre croquant sur lit de jeunes pousses, agrémentés d'une vinaigrette au yuzu et herbes fraîches.</p>
+                        <span class="price">28€</span>
+                    </div>
+                </article>
+                
+                <article class="menu-item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/buildAssets%2FE0bODgdAb7GbS8Ge3L9Y%2Fbrochette.jpg?alt=media&token=9d54761a-b18f-4051-a762-762f77a1b4ac" alt="Brichet de Poulet">
+                    <div class="menu-content">
+                        <h3>Brichet de Poulet au Caramel</h3>
+                        <p>Tendre suprême de poulet fermier laqué au caramel d'agrumes et épices douces, servi avec riz noir vénéré.</p>
+                        <span class="price">36€</span>
+                    </div>
+                </article>
+                
+                <article class="menu-item">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/buildAssets%2FE0bODgdAb7GbS8Ge3L9Y%2Fboeuf.jpg?alt=media&token=c5e11b78-7404-41b4-947d-230880d7b7a6" alt="Boeuf en Lamelles">
+                    <div class="menu-content">
+                        <h3>Tataki de Boeuf Wagyu</h3>
+                        <p>Fines lamelles de boeuf Wagyu snackées, servies avec salade de champignons shiitake et tomates confites à l'huile de truffe.</p>
+                        <span class="price">42€</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <section id="reservation" class="reservation">
+            <h2>RÉSERVATION</h2>
+            <form>
+                <div>
+                    <label for="name">Nom Complet</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div>
+                    <label for="phone">Téléphone</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div>
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                
+                <div>
+                    <label for="time">Heure</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                
+                <div>
+                    <label for="guests">Nombre de personnes</label>
+                    <select id="guests" name="guests" required>
+                        <option value="1">1 personne</option>
+                        <option value="2">2 personnes</option>
+                        <option value="3">3 personnes</option>
+                        <option value="4">4 personnes</option>
+                        <option value="5">5 personnes</option>
+                        <option value="6">6 personnes</option>
+                        <option value="more">Plus de 6 personnes</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="special-requests">Demandes spéciales</label>
+                    <textarea id="special-requests" name="special-requests" rows="4"></textarea>
+                </div>
+                
+                <button type="submit">Réserver une table</button>
+            </form>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>HORAIRES</h3>
+                <p>Mardi - Samedi</p>
+                <p>19h00 - 23h00</p>
+                <p>Dimanche - Lundi</p>
+                <p>Fermé</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>CONTACT</h3>
+                <p>15 Rue des Fin Gourmets</p>
+                <p>75000 Paris, France</p>
+                <p>+33 0 00 00 00 00 </p>
+                <p>info@lessencerestaurant.fr</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>SUIVEZ-NOUS</h3>
+                <div class="social-links">
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 L'Essence Restaurant Gastronomique. Tous droits réservés. @mydmoov</p>
+        </div>
+    </footer>
+</body>
+</html>
